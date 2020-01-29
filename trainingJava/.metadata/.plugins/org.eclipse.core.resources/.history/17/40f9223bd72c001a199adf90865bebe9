@@ -1,0 +1,48 @@
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Oksana {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		RemoteWebDriver driver = new ChromeDriver();
+
+		String baseUrl = "http://pogoda.by/";
+
+		// launch Fire fox and direct it to the Base URL
+		driver.get(baseUrl);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
+		wait.until(ExpectedConditions.visibilityOf(driver.findElementByClassName("middle")));
+
+		WebElement baseElement = driver.findElementByXPath("//table[@id='forecast']");
+		List<WebElement> dni = baseElement.findElements(By.xpath("//td/strong"));
+		List<WebElement> temperature = baseElement.findElements(By.xpath("//td/nobr"));
+
+		for (int i = 0; i < dni.size(); i++) {
+
+			System.out.println(dni.get(i).getText());
+			System.out.println("//////////////////");
+			System.out.println(temperature.get(i).getText());
+			System.out.println("//////////////////");
+
+		}
+
+		Thread.sleep(5000);
+		driver.quit();
+
+	}
+
+}

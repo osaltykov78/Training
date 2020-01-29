@@ -1,0 +1,32 @@
+
+public class Training {
+
+	public static void main(String[] args) {
+		String a = "heads";
+		String b = "tails";
+		double rand;
+		int c = 0;
+		int d = 1;
+		for (int i = 0; i < 100; i++) {
+
+		rand = (double) Math.random();
+//		int random_number = c + (int) (rand * d);
+		
+		System.out.println("Random number: " + rand);
+
+		if (rand < 0.5) {
+			System.out.println(a);
+
+		} else {
+			System.out.println(b);
+
+		}
+
+		
+	
+System.out.println("========================================================");		
+		}
+
+	}
+
+}
