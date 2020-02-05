@@ -3,7 +3,7 @@ package strings;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main_String {
+public class Task1 {
 
 	public static void main(String[] args) {
 
