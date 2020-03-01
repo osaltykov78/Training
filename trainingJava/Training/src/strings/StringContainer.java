@@ -22,8 +22,6 @@ public class StringContainer {
 			isUnique = true;
 			for (int j = 0; j < elementOfStringArray.length(); j++) {
 				if (i != j && elementOfStringArray.charAt(i) == elementOfStringArray.charAt(j)) {
-					System.out.println("i- "+elementOfStringArray.charAt(i));
-					System.out.println("j- "+elementOfStringArray.charAt(j));
 					isUnique = false;
 					break;
 				}
