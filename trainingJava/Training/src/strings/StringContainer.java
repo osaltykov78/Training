@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class StringContainer {
 	private String[] myStringArray;
-	private ArrayList<Integer> countlistOfUniqueSymbols;
+	public ArrayList<Integer> countlistOfUniqueSymbols;
 
 	public StringContainer() {
 		countlistOfUniqueSymbols = new ArrayList<Integer>();
@@ -22,8 +22,6 @@ public class StringContainer {
 			isUnique = true;
 			for (int j = 0; j < elementOfStringArray.length(); j++) {
 				if (i != j && elementOfStringArray.charAt(i) == elementOfStringArray.charAt(j)) {
-					System.out.println("i- "+elementOfStringArray.charAt(i));
-					System.out.println("j- "+elementOfStringArray.charAt(j));
 					isUnique = false;
 					break;
 				}
@@ -33,6 +31,7 @@ public class StringContainer {
 				countOfuniqueSymbols++;
 			}
 		}
+		System.out.println("unique chars: " + countOfuniqueSymbols);
 		return countOfuniqueSymbols;
 	}
 
@@ -40,6 +39,7 @@ public class StringContainer {
 		for (String elementOfArray : myStringArray) {
 			this.countlistOfUniqueSymbols.add(this.getCountOfUniqueSymbols(elementOfArray));
 		}
+		System.out.println(countlistOfUniqueSymbols.size());
 	}
 
 	private int getMinimalQuantityOfUniqueSymbols() {
@@ -50,11 +50,21 @@ public class StringContainer {
 					minimalCount = elementOfList;
 				}
 			}
-		}
+		} System.out.println("min count "+ minimalCount);
 		return minimalCount;
 	}
 
 	public int findIndexOfFirstStringWithMinimalCountOfUniqueSymbols() {
+		int minimalQuantity = this.getMinimalQuantityOfUniqueSymbols();
+		for (int i = 0; i < this.countlistOfUniqueSymbols.size(); i++) {
+			if (countlistOfUniqueSymbols.get(i) == minimalQuantity) {
+				return i;
+			}
+		}
+		return 0;
+	}
+	
+	public int findIndexOfFirstStringUniqueSymbols() {
 		int minimalQuantity = this.getMinimalQuantityOfUniqueSymbols();
 		for (int i = 0; i < this.countlistOfUniqueSymbols.size(); i++) {
 			if (countlistOfUniqueSymbols.get(i) == minimalQuantity) {
@@ -70,7 +80,7 @@ public class StringContainer {
 		}
 	}
 
-	private int getCommonLengthOfUniqueSymbols() {
+	public int getCommonLengthOfUniqueSymbols() {
 		int commonLength = 0;
 		for (int elementOfList : countlistOfUniqueSymbols) {
 			commonLength += elementOfList;
@@ -79,6 +89,10 @@ public class StringContainer {
 	}
 
 	public void setElementOfStringArray(int index, String value) {
+		myStringArray[index] = value;
+	}
+	
+	public void setArrayWithUniqueChars(int index, String value) {
 		myStringArray[index] = value;
 	}
 
