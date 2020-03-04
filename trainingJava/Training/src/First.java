@@ -12,15 +12,16 @@ public class First {
 	public static void main(String[] args) {
 	
 	System.out.println(a);
+//	System.getProperty("user.dir");
 	System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 	ChromeOptions options = new ChromeOptions();
 	DesiredCapabilities capabilities=new DesiredCapabilities();
-	options.addArguments("disable infobars");
+//	options.addArguments("disable infobars");
 	capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 	RemoteWebDriver driver=new ChromeDriver(capabilities);
 	driver.get("https://portal.achieve3000.com");
-	driver.findElementById("login_name1").sendKeys("boosttest.eng");
-	driver.findElementById("password1").sendKeys("boosttest.eng");
+	driver.findElementById("login_name1").sendKeys("lkumar2b");
+	driver.findElementById("password1").sendKeys("lkumar2b");
 	driver.findElementById("button").click();
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	
