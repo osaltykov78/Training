@@ -1,8 +1,8 @@
-package strings;
+package task7_strings;
 
 import java.util.Scanner;
 
-import strings.StringContainer;
+import task7_strings.StringContainer;
 
 public class Task7 {
 

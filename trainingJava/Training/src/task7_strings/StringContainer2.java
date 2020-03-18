@@ -1,4 +1,4 @@
-package strings;
+package task7_strings;
 
 import java.util.ArrayList;
 

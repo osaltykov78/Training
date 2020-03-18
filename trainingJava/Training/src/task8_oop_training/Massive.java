@@ -1,4 +1,4 @@
-package oop_training;
+package task8_oop_training;
 
 import java.util.Scanner;
 
